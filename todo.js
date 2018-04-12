@@ -1,19 +1,32 @@
 console.log("Hello TODO");
-var todoList = [];
+var todoList= new Map();
 
 console.log(todoList);
 function addToList(message) {
-   return todoList.push(message);
+    var uuid = new Date().getUTCMilliseconds();
+    todoList.set(uuid ,message);
+    return uuid;
 }
 
-function deleteIndexFromList(index) {
-    todoList = todoList.slice(index, index + 1);
+function getToDo(key)
+{
+    return todoList.get(key);
+}
+
+function deleteKeyFromList(key) {
+   return todoList.delete(key);
 }
 
 function printAllToDo() {
     todoList.forEach(printMessage);
 }
 
+function editToDoAtIndex(index, message)
+{
+    todoList[index] = message;
+}
+
 function printMessage(message) {
     console.log(message);
 }
+
