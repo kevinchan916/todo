@@ -8,6 +8,15 @@ function addToList(message) {
     return uuid;
 }
 
+function addItemToList(message)
+{
+    var liNode = document.createElement("li");                // Create a <li> node
+    var messageNode = document.createTextNode(message);         // Create a text node
+    liNode.appendChild(messageNode);                              // Append the text to <li>
+    document.getElementById("myList").appendChild(liNode);
+
+}
+
 function getToDo(key)
 {
     return todoList.get(key);
